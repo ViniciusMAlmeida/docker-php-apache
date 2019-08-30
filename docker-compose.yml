@@ -2,6 +2,7 @@ version: '3'
 
 services:
   web:
+    image: docker-php-apache-web
     container_name: php
     build: ./
     ports:
@@ -9,5 +10,4 @@ services:
     volumes:
       - "c:/git2/:/var/www/html/"
       - "./site.conf:/etc/apache2/sites-available/000-default.conf"
-      - "./custom.ini:/usr/local/etc/php/conf.d/custom.ini"
       - "c:/git2/log/apache/:/var/log/apache2/"
