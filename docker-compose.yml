@@ -5,6 +5,8 @@ services:
     image: docker-php-apache-web
     container_name: php
     build: ./
+    expose:
+      - "9000"
     ports:
       - "80:80"
     volumes:
@@ -12,4 +14,4 @@ services:
       - "./site.conf:/etc/apache2/sites-available/000-default.conf"
       - "./custom.ini:/usr/local/etc/php/conf.d/custom.ini"
       - "c:/git/log/apache/:/var/log/apache2/"
-      - "c:/git/tmp/xdebug/:/tmp/xdebug/"
+      - "c:/git/log/xdebug/:/tmp/xdebug/"

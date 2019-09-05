@@ -1,9 +1,6 @@
 FROM php:7.2-apache
 
 #install oci
-# ENV LD_LIBRARY_PATH /usr/local/instantclient
-# ENV ORACLE_HOME /usr/local/instantclient
-
 ADD oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm /usr/local
 ADD oracle-instantclient11.2-sqlplus-11.2.0.4.0-1.x86_64.rpm /usr/local
 ADD oracle-instantclient11.2-devel-11.2.0.4.0-1.x86_64.rpm /usr/local
@@ -27,7 +24,6 @@ RUN cd oci8-2.2.0/ && \
 
 #Install the soap extension
 RUN rm /etc/apt/preferences.d/no-debian-php
-
 RUN apt-get update -y && \
     apt-get install -y libxml2-dev php-pear php-soap && \
     docker-php-ext-install soap
